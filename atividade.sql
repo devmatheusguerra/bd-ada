@@ -93,3 +93,6 @@ SELECT nroEmprestimo FROM emprestimo WHERE total > 1200;
 -- Listar os nome dos clientes que possuem empréstimos na agência 1.
 SELECT c.nome FROM cliente c, emprestimo e, devedor d, agencia a WHERE d.codCliente = c.codCliente and d.nroEmprestimo = e.nroEmprestimo and e.codAgencia = a.codAgencia and a.nome = "Agência 1" 
 
+-- Item D
+-- Liste os nomes dos clientes que têm um empréstimo na agência Centro.
+SELECT c.nome FROM cliente c, emprestimo e, devedor d, agencia a WHERE d.codCliente = c.codCliente and d.nroEmprestimo = e.nroEmprestimo and e.codAgencia = a.codAgencia and a.nome = "Centro" 
