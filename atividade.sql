@@ -64,10 +64,12 @@ INSERT INTO cliente (nome, rua, cidade) VALUES ('Cliente 3', 'Rua 1', 'Cidade 2'
 INSERT INTO emprestimo (codAgencia, rua, total) VALUES (1, 'Rua 1', 1000);
 INSERT INTO emprestimo (codAgencia, rua, total) VALUES (1, 'Rua 2', 2000);
 INSERT INTO emprestimo (codAgencia, rua, total) VALUES (2, 'Rua 1', 3000);
+INSERT INTO emprestimo (codAgencia, rua, total) VALUES (1, 'Rua 1', 4000);
 
 INSERT INTO devedor (codCliente, nroEmprestimo) VALUES (1, 1);
 INSERT INTO devedor (codCliente, nroEmprestimo) VALUES (2, 2);
 INSERT INTO devedor (codCliente, nroEmprestimo) VALUES (3, 3);
+INSERT INTO devedor (codCliente, nroEmprestimo) VALUES (3, 4);
 
 INSERT INTO conta (codAgencia) VALUES (1);
 INSERT INTO conta (codAgencia, saldo) VALUES (1, 2000);
@@ -89,5 +91,5 @@ SELECT nroEmprestimo FROM emprestimo WHERE total > 1200;
 
 -- Item C
 -- Listar os nome dos clientes que possuem empréstimos na agência 1.
-SELECT c.nome FROM cliente c, emprestimo e, devedor d, agencia a WHERE a = 'Agência 1'
+SELECT c.nome FROM cliente c, emprestimo e, devedor d, agencia a WHERE d.codCliente = c.codCliente and d.nroEmprestimo = e.nroEmprestimo and e.codAgencia = a.codAgencia and a.nome = "Agência 1" 
 
